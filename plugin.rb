@@ -1,18 +1,18 @@
-# name: discourse-persona
-# about: persona login provider
+# name: discourse-webmaker-persona
+# about: webmaker-auth login provider
 # version: 0.1
-# author: Vikhyat Korrapati
+# author: Christopher De Cairos
 
-gem 'omniauth-browserid-discourse', '0.0.2', require_name: 'omniauth-browserid'
+gem 'omniauth-webmaker', '0.0.5', require_name: 'omniauth-webmaker'
 
-class PersonaAuthenticator < ::Auth::Authenticator
+class WebmakerAuthenticator < ::Auth::Authenticator
   def name
-    "persona"
+    "webmaker"
   end
 
-  def after_authenticate(auth_token)
+  def after_authenticate( auth_token )
     result = Auth::Result.new
-
+    puts auth_token[:info][:email]
     result.email = email = auth_token[:info][:email]
     result.email_valid = true
 
@@ -21,21 +21,22 @@ class PersonaAuthenticator < ::Auth::Authenticator
   end
 
   def register_middleware(omniauth)
-    omniauth.provider :browser_id, name: "persona"
+    omniauth.provider :webmaker,
+      login_server_url: SiteSetting.webmaker_server_url
   end
 end
 
-auth_provider authenticator: PersonaAuthenticator.new
+auth_provider authenticator: WebmakerAuthenticator.new
 
-register_asset "javascripts/persona.js"
+register_asset "javascripts/webmaker.js"
 
 register_css <<CSS
 
-.btn-social.persona {
+.btn-social.webmaker {
   background: #606060 !important;
 }
 
-.btn-social.persona:before {
+.btn-social.webmaker:before {
   content: "]";
 }
 

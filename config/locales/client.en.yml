@@ -1,6 +1,6 @@
 en:
   js:
     login:
-      persona:
-        title: "with Persona"
-        message: "Authenticating with Mozilla Persona (make sure pop up blockers are not enabled)"
+      webmaker:
+        title: "with Webmaker"
+        message: "Authenticating with Mozilla Webmaker (make sure pop up blockers are not enabled)"

@@ -1,6 +1,0 @@
-pt_BR:
-  js:
-    login:
-      persona:
-        title: "com Persona"
-        message: "Autenticando com Mozilla Persona (certifique-se de que os bloqueadores de popup estejam desativados)"
