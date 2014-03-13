@@ -36,11 +36,11 @@ register_asset "javascripts/webmaker.js"
 register_css <<CSS
 
 .btn-social.webmaker {
-  background: #606060 !important;
+  background: #3FB58E !important;
 }
 
 .btn-social.webmaker:before {
-  content: "]";
+  content: url('https://webmaker.org/img/favicon.ico');
 }
 
 CSS
