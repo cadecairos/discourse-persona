@@ -6,7 +6,6 @@ Discourse.LoginView.reopen({
       if (loginMethod.get("name") == "webmaker") {
         loginMethod.set("customLogin", function() {
           var webmakerAuthClient = new WebmakerAuthClient({
-            discourse: true,
             paths: {
               authenticate: "/auth/webmaker/callback"
             }
@@ -14,11 +13,12 @@ Discourse.LoginView.reopen({
           webmakerAuthClient.on( "login", function(data) {
             Discourse.authenticationComplete(data);
           });
+          webmakerAuthClient.on( "error", function() {
+            // TODO: figure out how to display an error in discourse
+          })
           webmakerAuthClient.login();
         });
       }
     });
   }
 });
-
-$.getScript("https://login.persona.org/include.js");
