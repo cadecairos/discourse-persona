@@ -28,6 +28,8 @@ end
 
 auth_provider authenticator: WebmakerAuthenticator.new
 
+register_asset "javascripts/eventEmitter.js"
+register_asset "javascripts/webmaker-auth-client.js"
 register_asset "javascripts/webmaker.js"
 
 register_css <<CSS
