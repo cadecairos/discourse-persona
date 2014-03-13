@@ -21,10 +21,4 @@ Discourse.LoginView.reopen({
   }
 });
 
-// TODO:
-// configurable script locations && better script loading!!!!
-// $.getScript("https://login.persona.org/include.js", function() {
-//   $.getScript("http://localhost:7777/bower/eventEmitter/EventEmitter.js", function() {
-//     $.getScript("http://localhost:7777/bower/webmaker-auth-client/webmaker-auth-client.js");
-//   });
-// });
+$.getScript("https://login.persona.org/include.js");
