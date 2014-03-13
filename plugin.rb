@@ -41,6 +41,8 @@ register_css <<CSS
 
 .btn-social.webmaker:before {
   content: url('https://webmaker.org/img/favicon.ico');
+  position: relative;
+  top: 2px;
 }
 
 CSS
