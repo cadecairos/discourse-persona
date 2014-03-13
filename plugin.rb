@@ -3,7 +3,7 @@
 # version: 0.1
 # author: Christopher De Cairos
 
-gem 'omniauth-webmaker', '0.0.5', require_name: 'omniauth-webmaker'
+gem 'omniauth-webmaker', '0.0.6', require_name: 'omniauth-webmaker'
 
 class WebmakerAuthenticator < ::Auth::Authenticator
   def name
