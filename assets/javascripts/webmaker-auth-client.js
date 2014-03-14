@@ -87,6 +87,7 @@
               // There was an error
               if (data.error) {
                 self.emitter.emitEvent('error', [data.error]);
+                return;
               }
 
               self.emitter.emitEvent('login', [data]);

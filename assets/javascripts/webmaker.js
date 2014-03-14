@@ -1,6 +1,7 @@
 Discourse.LoginView.reopen({
   didInsertElement: function() {
     this._super();
+    var self = this;
     // Set a customLogin method on the persona login provider.
     Ember.get("Discourse.LoginMethod.all").forEach(function(loginMethod) {
       if (loginMethod.get("name") == "webmaker") {
@@ -13,9 +14,9 @@ Discourse.LoginView.reopen({
           webmakerAuthClient.on( "login", function(data) {
             Discourse.authenticationComplete(data);
           });
-          webmakerAuthClient.on( "error", function() {
-            window.location = window.location.origin + "/auth/failure?message=webmaker%20login%20failed&strategy=webmaker"
-          })
+          webmakerAuthClient.on( "error", function(err) {
+            Discourse.__container__.lookup("controller:login").flash(err, "error");
+          });
           webmakerAuthClient.login();
         });
       }

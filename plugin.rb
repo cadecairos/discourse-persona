@@ -3,7 +3,7 @@
 # version: 0.1
 # author: Christopher De Cairos
 
-gem 'omniauth-webmaker', '0.0.6', require_name: 'omniauth-webmaker'
+gem "omniauth-webmaker", "0.0.7", require_name: "omniauth-webmaker"
 
 class WebmakerAuthenticator < ::Auth::Authenticator
   def name
@@ -23,6 +23,11 @@ class WebmakerAuthenticator < ::Auth::Authenticator
   def register_middleware(omniauth)
     omniauth.provider :webmaker,
       login_server_url: SiteSetting.webmaker_server_url
+
+    omniauth.on_failure do |env|
+      message_key = env["omniauth.error.type"]
+      Rack::Response.new(["{\"error\": \"#{message_key}\"}"], 200, "Content-Type" => "application/json").finish
+    end
   end
 end
 
@@ -40,7 +45,7 @@ register_css <<CSS
 }
 
 .btn-social.webmaker:before {
-  content: url('https://webmaker.org/img/favicon.ico');
+  content: url("https://webmaker.org/img/favicon.ico");
   position: relative;
   top: 2px;
 }
