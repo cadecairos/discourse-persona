@@ -12,11 +12,11 @@ class WebmakerAuthenticator < ::Auth::Authenticator
 
   def after_authenticate( auth_token )
     result = Auth::Result.new
-    puts auth_token[:info][:email]
+
     result.email = email = auth_token[:info][:email]
     result.email_valid = true
-
     result.user = User.find_by_email(email)
+
     result
   end
 

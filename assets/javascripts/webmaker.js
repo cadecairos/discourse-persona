@@ -14,7 +14,7 @@ Discourse.LoginView.reopen({
             Discourse.authenticationComplete(data);
           });
           webmakerAuthClient.on( "error", function() {
-            // TODO: figure out how to display an error in discourse
+            window.location = window.location.origin + "/auth/failure?message=webmaker%20login%20failed&strategy=webmaker"
           })
           webmakerAuthClient.login();
         });
