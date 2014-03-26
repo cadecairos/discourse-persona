@@ -1,0 +1,2 @@
+webmaker:
+    webmaker_server_url: '<login server host>/api/user/authenticate'
