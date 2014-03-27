@@ -4,3 +4,8 @@ en:
       webmaker:
         title: "with Webmaker"
         message: "Authenticating with Mozilla Webmaker (make sure pop up blockers are not enabled)"
+  admin_js:
+    admin:
+      site_settings:
+        categories:
+          webmaker: 'Webmaker'
