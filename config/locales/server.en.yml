@@ -1,3 +1,3 @@
 en:
     site_settings:
-        webmaker_server_url: "Don't know what this is??"
+        webmaker_server_url: "Hostname of the Webmaker login server that will be used to validate webmaker accounts"
