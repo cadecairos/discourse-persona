@@ -1,2 +1,2 @@
 webmaker:
-    webmaker_server_url: '<login server host>/api/user/authenticate'
+    webmaker_server_url: 'http://localhost:3000'
